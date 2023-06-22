@@ -14,7 +14,11 @@ module.exports = {
       accentBlue: "##2D4B73",
     },
     extend: {
-    }
+      fontFamily: {
+        lato: ["var(--font-lato)"],
+        spartan: ["var(--font-spartan)"]
+      }
+    },
   },
   plugins: [],
 }
