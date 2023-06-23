@@ -19,7 +19,7 @@ export default function Home() {
             <h1 className='font-spartan text-5xl font-bold sm:text-6xl'>Brendan&apos;s Tech Help</h1>
             <p className='font-lato font-semibold text-xl'>Local Tech Help Made Easy</p>
             <div className='mt-4 md:mt-6 font-lato text-lg'>
-              <button onClick={scrollToCalendly} className='inline-block rounded text-dark-blue text-xl px-5 py-3 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</button>
+              <button onClick={scrollToCalendly} className='inline-block rounded text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</button>
             </div>
           </div>
 
@@ -97,7 +97,7 @@ export default function Home() {
         </section>
       </main >
       <footer className='text-center bg-dark-blue text-light-blue font-lato text-sm'>
-        <p>Copyright &copy; Brendan Leal 2023</p>
+        <p>&copy; Brendan Leal 2023</p>
       </footer>
     </>
   )
