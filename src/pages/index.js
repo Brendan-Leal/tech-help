@@ -1,6 +1,16 @@
 import Image from 'next/image'
+import { useRef } from 'react'
 
 export default function Home() {
+  const calendlyRef = useRef(null);
+
+  const scrollToCalendly = () => {
+    calendlyRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  }
+
   return (
     <>
       <main className='flex flex-col bg-light-blue' >
@@ -9,7 +19,7 @@ export default function Home() {
             <h1 className='font-spartan text-5xl font-bold sm:text-6xl'>Brendan&apos;s Tech Help</h1>
             <p className='font-lato font-semibold text-xl'>Local Tech Help Made Easy</p>
             <div className='mt-4 md:mt-6 font-lato text-lg'>
-              <a href='#' className='inline-block rounded text-dark-blue text-xl px-5 py-3 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</a>
+              <button onClick={scrollToCalendly} className='inline-block rounded text-dark-blue text-xl px-5 py-3 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</button>
             </div>
           </div>
 
@@ -23,7 +33,7 @@ export default function Home() {
             />
           </div>
 
-          {/* Tablet size and above Image */}
+          {/* Tablet size and above, Image */}
           <Image
             src="/hero.jpeg"
             alt="Brendan"
@@ -73,12 +83,15 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div className='border-t-2 w-3/4 self-center my-5'></div>
+
+        {/* Divider */}
+        <div className='border-t-2 w-11/12 self-center my-5'></div>
 
         {/* Calendly */}
-        <section >
-          <div className='p-10 max-w-screen-xl xl:mx-auto'>
-            <h3 className='text-5xl  p-10 font-spartan font-extrabold text-dark-blue'>How it works</h3>
+        <section ref={calendlyRef} >
+          <div className='p-10 max-w-screen-xl xl:mx-auto font-lato text-lg md:text-xl'>
+            <h3 className='text-4xl tracking-tight font-spartan font-extrabold text-dark-blue'>Get In Touch</h3>
+            <p className='sm:text-xl md:text-2xl' >Schedule a phone call and let&apos;s get you squared away!</p>
           </div>
           <div className="calendly-inline-widget" data-url="https://calendly.com/leal-brendan/tech-help-appt?hide_gdpr_banner=1" style={{ minWidth: "320px", height: "750px" }}></div>
         </section>
