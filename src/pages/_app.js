@@ -1,5 +1,7 @@
 import '@/styles/globals.css'
 import { League_Spartan, Lato } from "next/font/google"
+import Script from 'next/script';
+import Head from 'next/head';
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
@@ -14,8 +16,14 @@ const lato = Lato({
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={`${lato.variable} ${leagueSpartan.variable} font-sans`}>
-      <Component {...pageProps} />
-    </div>
+    <>
+      <Head>
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"></link>
+      </Head>
+      <div className={`${lato.variable} ${leagueSpartan.variable} font-sans`}>
+        <Script defer src='https://assets.calendly.com/assets/external/widget.js' ></Script>
+        <Component {...pageProps} />
+      </div>
+    </>
   )
 }
