@@ -7,11 +7,11 @@ module.exports = {
   ],
   theme: {
     colors: {
-      deepOrange: "#BF8D30",
+      "deep-orange": "#BF8D30",
       yellow: "#D9B70D",
-      lightBlue: "#A3D0FC",
+      "light-blue": "#A3D0FC",
       "dark-blue": "#09182D",
-      accentBlue: "##2D4B73",
+      "accent-blue": "#2D4B73",
     },
     extend: {
       fontFamily: {
