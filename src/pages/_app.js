@@ -16,14 +16,9 @@ const lato = Lato({
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <Head>
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"></link>
-      </Head>
-      <div className={`${lato.variable} ${leagueSpartan.variable} font-sans`}>
-        <Script defer src='https://assets.calendly.com/assets/external/widget.js' ></Script>
-        <Component {...pageProps} />
-      </div>
-    </>
+    <div className={`${lato.variable} ${leagueSpartan.variable} font-sans`}>
+      <Script defer src='https://assets.calendly.com/assets/external/widget.js' ></Script>
+      <Component {...pageProps} />
+    </div>
   )
 }

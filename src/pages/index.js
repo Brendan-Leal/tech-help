@@ -19,7 +19,7 @@ export default function Home() {
             <h1 className='font-spartan text-5xl font-bold sm:text-6xl'>Brendan&apos;s Tech Help</h1>
             <p className='font-lato font-semibold text-xl'>Local Tech Help Made Easy</p>
             <div className='mt-4 md:mt-6 font-lato text-lg'>
-              <button onClick={scrollToCalendly} className='inline-block rounded text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</button>
+              <button onClick={scrollToCalendly} className='inline-block rounded-md text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</button>
             </div>
           </div>
 
@@ -55,23 +55,19 @@ export default function Home() {
               <div>
                 <h3 className="mb-2 font-spartan text-2xl font-bold">The Cloud</h3>
                 <p>
-                  Navigating the cloud can be overwhelming. Whether it&apos;s setting up your iCloud, Google Drive, or OneDrive accounts, syncing your data seamlessly, or tackling any cloud storage issues, I&apos;m here to lend a helping hand.
+                  Navigating the cloud can be overwhelming. Whether it&apos;s setting up your iCloud, syncing your data, or tackling any cloud storage issues, I&apos;m here to lend a helping hand.
                 </p>
               </div>
               <div>
                 <h3 className="mb-2 font-bold font-spartan text-2xl">Hardware</h3>
                 <p>
-                  Printers, smart home devices, TVs, oh my! As your dedicated tech expert, I&apos;m here to tackle all your hardware issues. Whether it&apos;s fixing printers, troubleshooting smart home devices, TVs, or anything else, count on me to provide the solutions you need.
+                  Printers, smart home devices, computers, oh my! As your dedicated tech expert, I&apos;m here to tackle all your hardware issues. From it&apos;s fixing printers, installing smart home devices, or building PCs, count on me to provide the solutions you need.
                 </p>
               </div>
               <div>
                 <h3 className="mb-2 font-spartan text-2xl font-bold">New Devices</h3>
                 <p>
-                  Excited about your new device but feeling lost? As your friendly neighborhood tech guy, I specialize in device setup and preparing old devices for their next chapter. I&apos;ll handle everything with precision and care.
-                </p>
-                <br />
-                <p>
-                  Let&apos;s get your new gadget ready to rock, while ensuring your old device is primed for selling, giving away, or recycling.
+                  Excited about your new device but feeling lost? As your friendly neighborhood tech guy, I specialize in device setup and preparing old devices for their next chapter. I&apos;ll handle everything with precision while ensuring your old device is primed for selling, giving away, or recycling.
                 </p>
               </div>
               <div>
@@ -84,14 +80,110 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divider */}
-        <div className='border-t-2 w-11/12 self-center my-5'></div>
+        {/* Pricing*/}
+        <section class="bg-dark-blue text-light-blue">
+          <div class="p-10 mx-auto max-w-screen-xl">
+            <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+              <h2 class="mb-4 text-4xl tracking-tight font-extrabold font-spartan">Service Costs</h2>
+              <p class="mb-5 font-lato text-lg">
+                I strive to make the complexities of technology simple and that&apos;s reflected in my simple and straight forward approach to pricing my services.
+              </p>
+            </div>
+            <div class="space-y-8 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0 font-lato text-lg">
+              {/* Pricing Card 1 */}
+              <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border border-deep-orange xl:p-8">
+                <h3 class="mb-4 text-2xl font-bold font-spartan">Standard Services</h3>
+                <p class="sm:text-lg">For all your basic tech help needs. Encompassing the most common problems.</p>
+                <div class="flex justify-center items-baseline my-8 text-deep-orange">
+                  <span class="mr-2 text-5xl font-extrabold">$75</span>
+                  <span class="text-gray-500 dark:text-gray-400">flat rate</span>
+                </div>
+                {/* List  */}
+                <ul role="list" class="mb-8 space-y-4 text-left list-disc list-inside ">
+                  <li class="items-center space-x-3 ">
+                    {/* TODO: add Icon?? */}
+                    <span>Troubleshooting Devices</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Cloud Storage</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Device Setups</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Malware Removal</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Computer Optimizations</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Pricing Card - Other Services */}
+              <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border xl:p-8">
+                <h3 class="mb-4 text-2xl font-bold font-spartan">Other Services</h3>
+                <p class="sm:text-lg mb-20">
+                  I offer other technical services that vary in price or depend on a budget. Get in contact with me and we can discuss the details.
+                </p>
+                <ul role="list" class="mb-8 space-y-4 text-left list-disc list-inside">
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Web Development - Please visit <a href='https://astrolabstudio.com' target="_blank" className='underline'>Astrolab Studio</a> to find more information.
+                    </span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Custom built PCs</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Have something else in mind? Find my email below.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Personal Guarantee */}
+        <section className='bg-dark-blue text-light-blue flex justify-center'>
+          {/* w- h-52 mt-4 mx-auto mb-0 position relative */}
+          <div className='bg-deep-orange text-dark-blue rounded-md h-60 md:h-40 w-full max-w-screen-lg mx-10 my-10 relative flex justify-center items-center'>
+            <div className='ribbon font-lato text-lg md:text-2xl'>My Personal Guarantee</div>
+            <div className="p-10 max-w-screen-xl xl:mx-auto">
+              <div className="max-w-screen-md">
+                <h2 className="font-spartan text-3xl tracking-tight font-bold ">
+                  If I cant fix it, you wont pay. It&apos;s as simple as that!
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+
+          {/* Email Me */}
+          <div className='px-10 py-5 max-w-screen-lg xl:mx-auto font-lato text-lg md:text-xl'>
+            <h3 className='text-4xl tracking-tight font-spartan font-extrabold text-dark-blue mb-3'>Have A Questions? Email Me</h3>
+            <p className='mb-6'>Don&apos;t see what you&apos;re looking for? Or want to ask me something specific? Reach out to me in an email</p>
+            <div className='flex justify-center'>
+              {/* */}
+              <a href='mailto:leal.brendan@gmail.com' className='rounded-md text-dark-blue text-xl p-4 max-w-sm text-center bg-deep-orange transition duration-200 hover:ease-in hover:scale-110'>Send Me an Email</a>
+            </div>
+          </div>
+        </section>
 
         {/* Calendly */}
         <section ref={calendlyRef} >
-          <div className='p-10 max-w-screen-xl xl:mx-auto font-lato text-lg md:text-xl'>
-            <h3 className='text-4xl tracking-tight font-spartan font-extrabold text-dark-blue'>Get In Touch</h3>
-            <p className='sm:text-xl md:text-2xl' >Schedule a phone call and let&apos;s get you squared away!</p>
+          <div className='px-10 py-5 sm:pb-0 max-w-screen-lg xl:mx-auto font-lato text-lg md:text-xl'>
+            <h3 className='text-4xl tracking-tight font-spartan font-extrabold text-dark-blue'>Appointments</h3>
+            <p className='' >Schedule a date and time that works best for you and let&apos;s get you the help you need! I&apos;ll meet you wherever your tech problems live.
+            </p>
+            <br />
+            <p>Or if you want more information you can select the <i>Phone Call</i> option and I&apos;ll give you a call. Simply fill out the form below:</p>
           </div>
           <div className="calendly-inline-widget" data-url="https://calendly.com/leal-brendan/tech-help-appt?hide_gdpr_banner=1" style={{ minWidth: "320px", height: "750px" }}></div>
         </section>
