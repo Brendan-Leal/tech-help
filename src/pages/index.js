@@ -83,23 +83,24 @@ export default function Home() {
         {/* Pricing*/}
         <section class="bg-dark-blue text-light-blue">
           <div class="p-10 mx-auto max-w-screen-xl">
-            <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-              <h2 class="mb-4 text-4xl tracking-tight font-extrabold font-spartan">Service Costs</h2>
-              <p class="mb-5 font-lato text-lg">
+            <div class="mx-auto max-w-screen-md text-left md:text-center mb-8 lg:mb-12">
+              <h2 class="mb-4 text-6xl tracking-tight font-extrabold font-spartan">Service Costs</h2>
+              <p class="mb-5 font-lato text-lg ">
                 I strive to make the complexities of technology simple and that&apos;s reflected in my simple and straight forward approach to pricing my services.
               </p>
             </div>
-            <div class="space-y-8 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0 font-lato text-lg">
+            <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0 font-lato text-lg">
               {/* Pricing Card 1 */}
-              <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border border-deep-orange xl:p-8">
-                <h3 class="mb-4 text-2xl font-bold font-spartan">Standard Services</h3>
-                <p class="sm:text-lg">For all your basic tech help needs. Encompassing the most common problems.</p>
+              <div class="flex flex-col p-6 mx-auto max-w-lg rounded-lg border xl:p-8">
+                <h3 class="mb-4 text-2xl font-bold font-spartan self-center">Standard Services</h3>
+                <p class="sm:text-lg">If there&apos;s a single issue you need taken care of look no further.</p>
                 <div class="flex justify-center items-baseline my-8 text-deep-orange">
                   <span class="mr-2 text-5xl font-extrabold">$75</span>
-                  <span class="text-gray-500 dark:text-gray-400">flat rate</span>
+                  <span class="">flat rate</span>
                 </div>
+                <p className=''>My solution to your specific problem:</p>
                 {/* List  */}
-                <ul role="list" class="mb-8 space-y-4 text-left list-disc list-inside ">
+                <ul role="list" class="mb-8 space-y-2 text-left list-disc list-inside ">
                   <li class="items-center space-x-3 ">
                     {/* TODO: add Icon?? */}
                     <span>Troubleshooting Devices</span>
@@ -121,6 +122,46 @@ export default function Home() {
                     <span>Computer Optimizations</span>
                   </li>
                 </ul>
+
+                <button onClick={scrollToCalendly} className='inline-block mt-auto self-center rounded-md text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</button>
+              </div>
+
+              {/* Pricing Card 2 */}
+              <div class="flex flex-col p-6 mx-auto max-w-lg rounded-lg border border-deep-orange xl:p-8">
+                <h3 class="mb-4 text-2xl font-bold font-spartan text-deep-orange self-center">Tech Bundle</h3>
+                <p class="sm:text-lg">Bundle your tech problems and save while getting all your tech problems fixed all at once.</p>
+                <div class="flex justify-center items-baseline mt-8 text-deep-orange">
+                  <span class="mr-2 text-5xl font-extrabold">$60</span>
+                  <span class="">Service Charge</span>
+                </div>
+                <div class="flex justify-center items-baseline my-2 text-deep-orange">
+                  <span className=''>+ $25 per additional task</span>
+                </div>
+                {/* List  */}
+                <ul role="list" class="mb-8 space-y-2 text-left list-disc list-inside ">
+                  <li class="items-center space-x-3 ">
+                    {/* TODO: add Icon?? */}
+                    <span>Troubleshooting Devices</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Cloud Storage</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Device Setups</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Malware Removal</span>
+                  </li>
+                  <li class="items-center space-x-3">
+                    {/* TODO: add Icon?? */}
+                    <span>Computer Optimizations</span>
+                  </li>
+                </ul>
+
+                <button onClick={scrollToCalendly} className='inline-block mt-auto self-center rounded-md text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110'>Schedule an Appointment</button>
               </div>
 
               {/* Pricing Card - Other Services */}
@@ -129,7 +170,7 @@ export default function Home() {
                 <p class="sm:text-lg mb-20">
                   I offer other technical services that vary in price or depend on a budget. Get in contact with me and we can discuss the details.
                 </p>
-                <ul role="list" class="mb-8 space-y-4 text-left list-disc list-inside">
+                <ul role="list" class="mb-8 space-y-2 text-left list-disc list-inside">
                   <li class="items-center space-x-3">
                     {/* TODO: add Icon?? */}
                     <span>Web Development - Please visit <a href='https://astrolabstudio.com' target="_blank" className='underline'>Astrolab Studio</a> to find more information.
