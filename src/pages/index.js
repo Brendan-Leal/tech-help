@@ -1,3 +1,4 @@
+import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -81,10 +82,10 @@ export default function Home() {
                   Hardware
                 </h3>
                 <p>
-                  Printers, smart home devices, computers, oh my! I&apos;m here to tackle all your
-                  hardware issues. From it&apos;s fixing printers, installing
-                  smart home devices, or building PCs, count on me to provide
-                  the solutions you need.
+                  Printers, smart home devices, computers, oh my! I&apos;m here
+                  to tackle all your hardware issues. From it&apos;s fixing
+                  printers, installing smart home devices, or building PCs,
+                  count on me to provide the solutions you need.
                 </p>
               </div>
               <div>
@@ -92,10 +93,11 @@ export default function Home() {
                   New Devices
                 </h3>
                 <p>
-                  Excited about your new device but feeling lost? I specialize in device setup
-                  and preparing old devices for their next chapter. I&apos;ll
-                  handle everything with precision while ensuring your old
-                  device is primed for selling, giving away, or recycling.
+                  Excited about your new device but feeling lost? I specialize
+                  in device setup and preparing old devices for their next
+                  chapter. I&apos;ll handle everything with precision while
+                  ensuring your old device is primed for selling, giving away,
+                  or recycling.
                 </p>
               </div>
               <div>
@@ -104,10 +106,10 @@ export default function Home() {
                 </h3>
                 <p>
                   Is your computer feeling sluggish and in need of some TLC?
-                  Let&apos;s give it a second chance to shine! I can breathing new life into old or slow
-                  computers. From optimizing performance to banishing malware
-                  and bloatware, I&apos;ll work my magic to revitalize your
-                  computer and give it a new start.
+                  Let&apos;s give it a second chance to shine! I can breathing
+                  new life into old or slow computers. From optimizing
+                  performance to banishing malware and bloatware, I&apos;ll work
+                  my magic to revitalize your computer and give it a new start.
                 </p>
               </div>
             </div>
@@ -310,30 +312,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Calendly */}
-        <section ref={calendlyRef}>
-          <div className="px-10 py-5 sm:pb-0 max-w-screen-lg xl:mx-auto font-lato text-lg md:text-xl">
-            <h3 className="text-4xl tracking-tight font-spartan font-extrabold text-dark-blue">
-              Appointments
-            </h3>
-            <p className="">
-              Schedule a date and time that works best for you and let&apos;s
-              get you the help you need! I&apos;ll meet you wherever your tech
-              problems live.
-            </p>
-            <br />
-            <p>
-              Or if you want more information you can select the{" "}
-              <i>Phone Call</i> option and I&apos;ll give you a call. Simply
-              fill out the form below:
-            </p>
-          </div>
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/leal-brendan/tech-help-appt?hide_gdpr_banner=1"
-            style={{ minWidth: "320px", height: "750px" }}
-          ></div>
-        </section>
+        <ContactForm />
       </main>
       <footer className="text-center bg-dark-blue text-light-blue font-lato text-sm">
         <p>&copy; Brendan Leal 2023</p>
