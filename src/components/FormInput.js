@@ -1,72 +1,22 @@
-import { useContext } from "react";
-import { FormContext } from "@/context/FormContext";
+export default function FormInput({ label, type, inputName, setter }) {
 
-export default function FormInput({ label, type, inputName }) {
-  const form = useContext(FormContext);
+  const handleChange = (e) => {
+    // Prevent non-numeric chars in tel input types
+    if (type === "tel") {
+      e.target.value = e.target.value.replace(/\D/g, "");
+    }
+    setter(e.target.value);
+  };
 
   return (
     <label className="col-span-2 md:col-span-1">
       <span className="block">{label}:</span>
       <input
-        className="w-full rounded-md px-1 h-7"
+        className="w-full rounded-md px-1 h-10"
         type={type}
         name={inputName}
-        onChange={form.updateParam}
+        onChange={handleChange}
       />
     </label>
   );
 }
-
-// <label className="col-span-2 md:col-span-1">
-//   <span className="block">First Name</span>
-//   <input
-//     className="w-full"
-//     type="text"
-//     name="firstname"
-//     onChange={updateParam}
-//   />
-// </label>
-
-// <label className="block">
-//   <span className="block">Last Name</span>
-//   <input
-//     className="w-full"
-//     type="text"
-//     name="lastname"
-//     onChange={updateParam}
-//   />
-// </label>
-
-// <label>
-//   Phone Number
-//   <input
-//     type="tel"
-//     name="mobilephone"
-//     value={formData.mobilephone}
-//     onChange={updateParam}
-//     inputMode="numeric"
-//     pattern="[0-9]+"
-//   />
-// </label>
-
-// <label>
-//   Email
-//   <input type="email" name="email" onChange={updateParam} />
-// </label>
-
-// <label>
-//   Message
-//   <textarea name="message" onChange={updateParam}></textarea>
-// </label>
-// <label>
-//   address
-//   <input type="text" name="address" onChange={handleAutoComplete} />
-// </label>
-// <div>
-//   <h2>Predictions</h2>
-//   <ul>
-//     {placePredictions.map((place) => {
-//       return <li>{place.description}</li>;
-//     })}
-//   </ul>
-// </div>
