@@ -80,11 +80,10 @@ export default function AutoCompleteFormInputAddress({
       <label htmlFor="address">Address:</label>
       <input
         id="address"
-        className={`w-full px-1 h-10 ${
-          placePredictions.length > 1 && showAddressPredictions
+        className={`w-full px-1 h-10 ${placePredictions.length > 1 && showAddressPredictions
             ? "rounded-t-md"
             : "rounded-md "
-        }`}
+          }`}
         type="text"
         name="address"
         onChange={handleChange}
@@ -92,6 +91,7 @@ export default function AutoCompleteFormInputAddress({
         autoComplete="off"
         onKeyDown={handleKeyDown}
         ref={addressInputRef}
+        required
       />
 
       {placePredictions && showAddressPredictions && (
