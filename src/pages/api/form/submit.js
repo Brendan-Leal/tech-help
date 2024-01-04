@@ -8,6 +8,8 @@ export default async function submit(req, res) {
 
   addFormData(fieldValues, req.body);
 
+  const isEmptyInput = fieldValues.some(field => field.value.length === 0)
+
   const hsRes = await fetch(HS_APP_URL, {
     method: "POST",
     headers: {
@@ -17,8 +19,10 @@ export default async function submit(req, res) {
     body: JSON.stringify({ fields: fieldValues }),
   }).catch((err) => console.error(err));
 
-  if (hsRes.ok) {
+  if (hsRes.ok && !isEmptyInput) {
     res.status(200).end();
+  } else if (isEmptyInput) {
+    res.status(400).end()
   } else {
     res.status(500).end();
     throw new Error("Could not complete form submission to HubSpot");
