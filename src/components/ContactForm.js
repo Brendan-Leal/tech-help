@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import FormInput from "./FormInput";
 import AutoCompleteFormInputAddress from "./AutoCompleteFormInputAddress";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [firstname, setFirstname] = useState("");
@@ -14,10 +15,23 @@ export default function ContactForm() {
   const [showFormError, setShowFormError] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [formErrorMsg, setFormErrorMsg] = useState("")
+  const [btnDisabled, setBtnDisabled] = useState(true)
+  const captchaRef = useRef()
+  const [captcha, setCaptcha] = useState(null)
+
+  useEffect(() => {
+    if (captcha && captcha.length > 0) {
+      setBtnDisabled(false)
+    } else {
+      setBtnDisabled(true)
+    }
+  }, [captcha])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true)
+
+    const isValidToken = await verifyCaptcha()
 
     const payload = {
       firstname,
@@ -27,33 +41,50 @@ export default function ContactForm() {
       message,
       address,
     };
-    console.log("submitting: ", payload);
 
-    await fetch(process.env.NEXT_PUBLIC_FORM_SUBMISSION_ENDPOINT, {
+    if (isValidToken) {
+      await fetch(process.env.NEXT_PUBLIC_FORM_SUBMISSION_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then(res => {
+          if (res.ok) {
+            setIsLoading(false)
+            setShowForm(false)
+          } else {
+            setShowFormError(true)
+            setIsLoading(false)
+            setFormErrorMsg("⛔ Sorry something went wrong please try again later.")
+          }
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
+  const verifyCaptcha = async () => {
+    const res = await fetch("/api/form/validate", {
       method: "POST",
+      body: JSON.stringify({ token: captcha }),
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload),
     })
-      .then(res => {
-        if (res.ok) {
-          setIsLoading(false)
-          setShowForm(false)
-        } else {
-          setShowFormError(true)
-          setIsLoading(false)
-          setFormErrorMsg("⛔ Sorry something went wrong please try again later.")
-        }
-      })
-      .catch((err) => console.error(err));
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+    console.log("RES: ", res);
+
+    return res.success;
   };
+
 
   return (
     <>
       {/* Default of this component is to show the form */}
       {showForm &&
-        <div className="md:p-10 mx-auto w-full max-w-screen-md  font-lato text-lg">
+        <div className="md:p-10 p-10 mx-auto w-full max-w-screen-md  font-lato text-lg">
           <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-3">
             <FormInput
               label="First Name"
@@ -98,25 +129,31 @@ export default function ContactForm() {
               ></textarea>
             </label>
 
-            {/* FIXME: button doesn't line up with Grid track after message */}
+
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={token => setCaptcha(token)}
+              ref={captchaRef}
+            />
+
             <button
               type="submit"
-              className="bg-deep-orange h-12 md:h-16 md:w-1/2 rounded-md text-dark-blue text-xl transition duration-200 hover:ease-in hover:scale-110 disabled:opacity-[75%] disabled:hover:scale-100 disabled:cursor-wait"
-              disabled={isLoading}
-              onClick={e => console.log("Click")}
+              className="row-start-[8] md:row-start-5 md:col-start-2 bg-deep-orange h-12 md:h-16 md:w-1/2 rounded-md text-dark-blue text-xl transition duration-200 hover:ease-in hover:scale-110 disabled:opacity-[75%] disabled:hover:scale-100 disabled:cursor-not-allowed"
+              disabled={btnDisabled || isLoading}
             >
               Submit
             </button>
             {showFormError &&
               <div className="text-red-700 font-medium">{formErrorMsg}</div>
             }
+
           </form>
         </div>
       }
 
       {/* Form submission successful? Show this  */}
       {!showForm &&
-        <div className="my-20">
+        <div className="my-20 text-center">
           <h2>Success! Expect a phone call from me soon.</h2>
         </div>}
     </>
