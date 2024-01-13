@@ -9,7 +9,7 @@ export default function Hero() {
                     Brendan&apos;s Tech Help
                 </h1>
                 <p className="font-lato font-medium text-2xl">
-                    Wickenburg's Local Tech Help Made Simple
+                    Wickenburg&apos;s Local Tech Help Made Simple
                 </p>
 
                 <div className="font-lato text-lg text-dark-blue">
