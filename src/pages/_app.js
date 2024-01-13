@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }) {
   const [cellDimensions, setCellDimensions] = useState(10)
   const [viewPortHeight, setViewPortHeight] = useState(10)
 
+  // This hook sets the dimensions of the viewport to be used to create a perfect grid background even when the browser is resized
   useEffect(() => {
     const updateSize = () => {
       setViewPortWidth(window.innerWidth)
@@ -31,10 +32,11 @@ export default function App({ Component, pageProps }) {
     return () => window.removeEventListener("resize", updateSize)
   }, [])
 
+  // This hook runs if the viewport changes width and will resize the grid bg cells to be even squares. 
   useEffect(() => {
     // Use same tailwind breakpoint values to set the width of each cell in the background grid. Ensuring a perfect grid no matter the size of the viewport. 
     if (viewPortWidth <= 640) {
-      setCellDimensions(viewPortWidth / 15)
+      setCellDimensions(viewPortWidth / 10)
     } else if (viewPortWidth > 640 && viewPortWidth <= 1024) {
       setCellDimensions(viewPortWidth / 20)
     } else {
@@ -43,6 +45,13 @@ export default function App({ Component, pageProps }) {
 
   }, [viewPortWidth])
 
+  useEffect(() => {
+    // B/c tailwind wont let me dynamically set an arbitrary value I've opted to just do it in regular JS 
+    // This allows me to always line up the svg grid background with the main layout's padding. Just for aesthetic reasons
+    document.getElementById("layout").style.padding = `${cellDimensions}px ${cellDimensions}px 0`
+  }, [cellDimensions])
+
+  // This is where I dynamically create the SVG to be used for the body element's background.
   useEffect(() => {
     // Create SVG to be used as the body element's background
     const setGridBG = () => {
@@ -88,15 +97,14 @@ export default function App({ Component, pageProps }) {
 
       const svgString = new XMLSerializer().serializeToString(svg);
       const dataURL = `url('data:image/svg+xml,${encodeURIComponent(svgString)}')`;
-      document.body.style.backgroundImage = dataURL;
+      document.body.style.background = `${dataURL}, radial-gradient(circle, #586f87 0%, #09182D 100%)`
     }
 
     setGridBG()
   }, [viewPortWidth, viewPortHeight, cellDimensions])
 
-
   return (
-    <div className={`${lato.variable} ${leagueSpartan.variable} font-sans`}>
+    <div id="layout" className={`${lato.variable} ${leagueSpartan.variable} font-sans`}>
       <Script defer src='https://assets.calendly.com/assets/external/widget.js' ></Script>
       <Component {...pageProps} />
     </div>
