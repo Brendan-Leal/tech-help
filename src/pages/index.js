@@ -1,8 +1,9 @@
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Hero from "@/components/Hero";
 
-export default function Home() {
+export default function Home({ cellDimensions }) {
   const calendlyRef = useRef(null);
 
   const scrollToCalendly = () => {
@@ -14,51 +15,14 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col bg-light-blue">
-        <section className="bg-dark-blue text-light-blue overflow-hidden text-center sm:text-left sm:grid sm:grid-cols-2 sm:items-center sm:justify-items-center">
-          <div className="p-10">
-            <h1 className="font-spartan text-5xl font-bold sm:text-6xl">
-              Brendan&apos;s Tech Help
-            </h1>
-            <p className="font-lato font-semibold text-xl">
-              Local Tech Help Made Easy
-            </p>
-            <div className="mt-4 md:mt-6 font-lato text-lg">
-              <button
-                onClick={scrollToCalendly}
-                className="inline-block rounded-md text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110"
-              >
-                Schedule an Appointment
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Image */}
-          <div className="h-72 w-full relative sm:hidden">
-            <Image
-              src="/hero.jpeg"
-              alt="Brendan"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* Tablet size and above, Image */}
-          <Image
-            src="/hero.jpeg"
-            alt="Brendan"
-            width={450}
-            height={450}
-            style={{ clipPath: "polygon(20% 0, 100% 0%, 100% 100%, 0 100%)" }}
-            className="hidden sm:block object-cover ml-auto"
-          />
-        </section>
+      <main className="flex flex-col max-w-screen-lg mx-auto text-white gap-12">
+        <Hero />
 
         {/* Tech Services */}
-        <section className="text-dark-blue font-lato text-lg md:text-xl">
-          <div className="p-10 max-w-screen-xl xl:mx-auto">
-            <div className="max-w-screen-md mb-8 lg:mb-16">
-              <h2 className="mb-4 font-spartan text-4xl tracking-tight font-extrabold">
+        <section className="font-lato text-lg md:text-xl">
+          <div className="">
+            <div className="mb-8 lg:mb-16">
+              <h2 className="mb-4 font-spartan text-4xl font-extrabold">
                 Personalizing Tech Help to Meet Your Needs
               </h2>
               <p className="sm:text-xl md:text-2xl">
@@ -117,8 +81,8 @@ export default function Home() {
         </section>
 
         {/* Pricing*/}
-        <section className="bg-dark-blue text-light-blue">
-          <div className="p-10 mx-auto max-w-screen-xl">
+        <section className=" text-light-blue">
+          <div className="mx-auto max-w-screen-xl">
             <div className="mx-auto max-w-screen-md text-left md:text-center mb-8 lg:mb-12">
               <h2 className="mb-4 text-6xl tracking-tight font-extrabold font-spartan">
                 Service Costs
