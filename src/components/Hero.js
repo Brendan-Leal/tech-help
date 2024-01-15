@@ -12,7 +12,7 @@ export default function Hero({ scrollToForm }) {
                 <div className="font-lato text-lg text-dark-blue">
                     <button
                         onClick={scrollToForm}
-                        className="bg-deep-orange rounded-md text-xl p-4 transition duration-200 hover:ease-in hover:scale-110"
+                        className="bg-deep-orange text-xl p-4 transition duration-200 hover:ease-in hover:scale-110"
                     >
                         Schedule an Appointment
                     </button>
