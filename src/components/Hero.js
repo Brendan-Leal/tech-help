@@ -1,7 +1,4 @@
-import Image from "next/image";
-// bg-gradient-to-b from-light-blue to-deep-orange
-
-export default function Hero() {
+export default function Hero({ scrollToForm }) {
     return (
         <section >
             <div className="flex flex-col gap-4 md:gap-5">
@@ -14,8 +11,7 @@ export default function Hero() {
 
                 <div className="font-lato text-lg text-dark-blue">
                     <button
-                        // TODO: rework button scroll
-                        // onClick={scrollToCalendly}
+                        onClick={scrollToForm}
                         className="bg-deep-orange rounded-md text-xl p-4 transition duration-200 hover:ease-in hover:scale-110"
                     >
                         Schedule an Appointment
