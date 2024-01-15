@@ -82,10 +82,11 @@ const ContactForm = forwardRef(
     };
 
     return (
-      <>
+      <div className="mb-8 flex flex-col gap-8">
+        <h2 className="text-center font-spartan text-4xl md:text-5xl font-extrabold">Schedule you&apos;re Appointment By Filling out the From Below</h2>
         {/* Default of this component is to show the form */}
         {showForm &&
-          <div ref={ref} className="md:p-10 p-10 mx-auto w-full max-w-screen-md  font-lato text-lg">
+          <div ref={ref} className="mx-auto w-full font-lato text-lg">
             <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-3">
               <FormInput
                 label="First Name"
@@ -122,7 +123,7 @@ const ContactForm = forwardRef(
                 <span className="block">Message:</span>
                 <textarea
                   ref={messageRef}
-                  className={`rounded-md px-1 w-full h-52`}
+                  className="text-dark-blue px-1 w-full h-52"
                   name="message"
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Please provide as much detail as possible regarding your technical issue."
@@ -139,7 +140,7 @@ const ContactForm = forwardRef(
 
               <button
                 type="submit"
-                className="row-start-[8] md:row-start-5 md:col-start-2 bg-deep-orange h-12 md:h-16 md:w-1/2 rounded-md text-dark-blue text-xl transition duration-200 hover:ease-in hover:scale-110 disabled:opacity-[75%] disabled:hover:scale-100 disabled:cursor-not-allowed"
+                className="md:justify-self-end row-start-[8] md:row-start-5 md:col-start-2 bg-deep-orange h-12 md:h-16 md:w-1/2 rounded-md text-dark-blue text-xl transition duration-200 hover:ease-in hover:scale-110 disabled:hover:scale-100 disabled:cursor-not-allowed"
                 disabled={btnDisabled || isLoading}
               >
                 Submit
@@ -157,7 +158,7 @@ const ContactForm = forwardRef(
           <div className="my-20 text-center">
             <h2>Success! Expect a phone call from me soon.</h2>
           </div>}
-      </>
+      </div>
     );
   }
 )

@@ -80,10 +80,7 @@ export default function AutoCompleteFormInputAddress({
       <label htmlFor="address">Address:</label>
       <input
         id="address"
-        className={`w-full px-1 h-10 ${placePredictions.length > 1 && showAddressPredictions
-            ? "rounded-t-md"
-            : "rounded-md "
-          }`}
+        className="w-full px-1 h-10 text-dark-blue"
         type="text"
         name="address"
         onChange={handleChange}
@@ -96,13 +93,13 @@ export default function AutoCompleteFormInputAddress({
 
       {placePredictions && showAddressPredictions && (
         <div className="absolute w-full">
-          <ul className="w-full bg-white  shadow-lg" ref={listRef}>
+          <ul className="w-full bg-white shadow-lg" ref={listRef}>
             {placePredictions.map((place) => {
               return (
                 <li
                   key={place["place_id"]}
                   tabIndex="0"
-                  className="bg-white px-2 py-2 hover:bg-slate-300 last:rounded-b-md  cursor-pointer border-gray-400 border-solid border-t-[1px] border-x-[1px] last:border-b-[1px]"
+                  className="text-dark-blue bg-white px-2 py-2 hover:bg-slate-300 last:rounded-b-md  cursor-pointer border-gray-400 border-solid border-t-[1px] border-x-[1px] last:border-b-[1px]"
                   onClick={handleAddressSelect}
                   onKeyDown={handleKeyDown}
                 >
