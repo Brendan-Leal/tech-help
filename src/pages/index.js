@@ -103,12 +103,12 @@ export default function Home() {
               description="Have more than one device or issue that needs to be fixed? I'll take care of everything in one convenient appointment."
               price="150"
               listTitle="Covers up to 4 of you devices:"
-              className="[border-image:linear-gradient(to_top_left,#A3D0FC,#BF8D30)_30] border-transparent]"
+              className="border-deep-orange"
             />
 
             <ServiceCard
               scrollToForm={scrollToForm}
-              serviceTitle="Standard Services"
+              serviceTitle="One & Done"
               description="If there&apos;s a single issue you need taken care of look no
                 further."
               price="80"
@@ -120,7 +120,7 @@ export default function Home() {
 
         {/* Personal Guarantee */}
         <section className="">
-          <div className="bg-deep-orange text-dark-blue h-60 md:h-40 w-full relative flex justify-center items-center">
+          <div className="bg-deep-orange text-dark-blue h-60 md:h-40 w-full relative flex justify-center items-center drop-shadow-subtle">
             <div className="ribbon font-lato text-lg md:text-2xl">
               My Personal Guarantee
             </div>
