@@ -15,9 +15,9 @@ export default function ServiceCard({
             <p>
                 {description}
             </p>
-            <div className="flex justify-center items-baseline my-8 text-deep-orange">
+            <div className="flex justify-center items-baseline my-8 text-deep-orange font-spartan">
                 <span className="mr-2 text-5xl font-extrabold">${price}</span>
-                <span className="">flat rate</span>
+                <span className="text-xl">flat rate</span>
             </div>
 
             <p className="">{listTitle}</p>
