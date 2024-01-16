@@ -1,10 +1,10 @@
 import ContactForm from "@/components/ContactForm";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
+import Testimonials from "@/components/Testimonials";
 
-export default function Home({ cellDimensions }) {
+export default function Home() {
   const formRef = useRef(null);
 
   const scrollToForm = () => {
@@ -134,9 +134,11 @@ export default function Home({ cellDimensions }) {
           </div>
         </section>
 
+        <Testimonials />
+
         <ContactForm ref={formRef} />
       </main>
-      <footer className="text-center text-light-blue font-lato text-sm">
+      <footer className="text-center text-light-blue font-lato text-sm mb-2">
         <p>&copy; Brendan Leal 2023 - {new Date().getFullYear()}</p>
       </footer>
     </>
