@@ -140,7 +140,7 @@ const ContactForm = forwardRef(
 
               <button
                 type="submit"
-                className="md:justify-self-end row-start-[8] md:row-start-5 md:col-start-2 bg-deep-orange h-12 md:h-16 md:w-1/2 rounded-md text-dark-blue text-xl transition duration-200 hover:ease-in hover:scale-110 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                className="md:justify-self-end row-start-[8] md:row-start-5 md:col-start-2 bg-deep-orange h-12 md:h-16 md:w-1/2 text-dark-blue text-xl transition duration-200 hover:ease-in hover:scale-110 disabled:hover:scale-100 disabled:cursor-not-allowed"
                 disabled={btnDisabled || isLoading}
               >
                 Submit
