@@ -1,12 +1,14 @@
 import ContactForm from "@/components/ContactForm";
-import Image from "next/image";
 import { useRef } from "react";
+import Hero from "@/components/Hero";
+import ServiceCard from "@/components/ServiceCard";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
-  const calendlyRef = useRef(null);
+  const formRef = useRef(null);
 
-  const scrollToCalendly = () => {
-    calendlyRef.current.scrollIntoView({
+  const scrollToForm = () => {
+    formRef.current.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
@@ -14,51 +16,14 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col bg-light-blue">
-        <section className="bg-dark-blue text-light-blue overflow-hidden text-center sm:text-left sm:grid sm:grid-cols-2 sm:items-center sm:justify-items-center">
-          <div className="p-10">
-            <h1 className="font-spartan text-5xl font-bold sm:text-6xl">
-              Brendan&apos;s Tech Help
-            </h1>
-            <p className="font-lato font-semibold text-xl">
-              Local Tech Help Made Easy
-            </p>
-            <div className="mt-4 md:mt-6 font-lato text-lg">
-              <button
-                onClick={scrollToCalendly}
-                className="inline-block rounded-md text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110"
-              >
-                Schedule an Appointment
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Image */}
-          <div className="h-72 w-full relative sm:hidden">
-            <Image
-              src="/hero.jpeg"
-              alt="Brendan"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* Tablet size and above, Image */}
-          <Image
-            src="/hero.jpeg"
-            alt="Brendan"
-            width={450}
-            height={450}
-            style={{ clipPath: "polygon(20% 0, 100% 0%, 100% 100%, 0 100%)" }}
-            className="hidden sm:block object-cover ml-auto"
-          />
-        </section>
+      <main className="flex flex-col max-w-screen-lg mx-auto text-white gap-16">
+        <Hero scrollToForm={scrollToForm} />
 
         {/* Tech Services */}
-        <section className="text-dark-blue font-lato text-lg md:text-xl">
-          <div className="p-10 max-w-screen-xl xl:mx-auto">
-            <div className="max-w-screen-md mb-8 lg:mb-16">
-              <h2 className="mb-4 font-spartan text-4xl tracking-tight font-extrabold">
+        <section className="font-lato text-lg md:text-xl">
+          <div className="">
+            <div className="mb-8 lg:mb-16">
+              <h2 className="mb-4 font-spartan text-4xl font-extrabold">
                 Personalizing Tech Help to Meet Your Needs
               </h2>
               <p className="sm:text-xl md:text-2xl">
@@ -117,167 +82,45 @@ export default function Home() {
         </section>
 
         {/* Pricing*/}
-        <section className="bg-dark-blue text-light-blue">
-          <div className="p-10 mx-auto max-w-screen-xl">
-            <div className="mx-auto max-w-screen-md text-left md:text-center mb-8 lg:mb-12">
-              <h2 className="mb-4 text-6xl tracking-tight font-extrabold font-spartan">
-                Service Costs
-              </h2>
-              <p className="mb-5 font-lato text-lg ">
-                I strive to make the complexities of technology simple and
-                that&apos;s reflected in my simple and straight forward approach
-                to pricing my services.
-              </p>
-            </div>
-            <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0 font-lato text-lg">
-              {/* Pricing Card 1 */}
-              <div className="flex flex-col p-6 mx-auto max-w-lg rounded-lg border xl:p-8">
-                <h3 className="mb-4 text-2xl font-bold font-spartan self-center">
-                  Standard Services
-                </h3>
-                <p className="sm:text-lg">
-                  If there&apos;s a single issue you need taken care of look no
-                  further.
-                </p>
-                <div className="flex justify-center items-baseline my-8 text-deep-orange">
-                  <span className="mr-2 text-5xl font-extrabold">$75</span>
-                  <span className="">flat rate</span>
-                </div>
-                <p className="">My solution to your specific problem:</p>
-                {/* List  */}
-                <ul
-                  role="list"
-                  className="mb-8 space-y-2 text-left list-disc list-inside "
-                >
-                  <li className="items-center space-x-3 ">
-                    {/* TODO: add Icon?? */}
-                    <span>Troubleshooting Devices</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Cloud Storage</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Device Setups</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Malware Removal</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Computer Optimizations</span>
-                  </li>
-                </ul>
+        <section className="">
+          <div className="text-left">
+            <h2 className="text-5xl font-extrabold font-spartan">
+              Service Costs
+            </h2>
+            <p className="mb-5 font-lato text-lg ">
+              I strive to make the complexities of technology simple and
+              that&apos;s reflected in my simple and straight forward approach
+              to pricing my services.
+            </p>
+          </div>
 
-                <button
-                  onClick={scrollToCalendly}
-                  className="inline-block mt-auto self-center rounded-md text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110"
-                >
-                  Schedule an Appointment
-                </button>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-8 xl:gap-10 font-lato text-lg justify-center">
 
-              {/* Pricing Card 2 */}
-              <div className="flex flex-col p-6 mx-auto max-w-lg rounded-lg border border-deep-orange xl:p-8">
-                <h3 className="mb-4 text-2xl font-bold font-spartan text-deep-orange self-center">
-                  Tech Bundle
-                </h3>
-                <p className="sm:text-lg">
-                  Bundle your tech problems and save while getting all your tech
-                  problems fixed all at once.
-                </p>
-                <div className="flex justify-center items-baseline mt-8 text-deep-orange">
-                  <span className="mr-2 text-5xl font-extrabold">$60</span>
-                  <span className="">Service Charge</span>
-                </div>
-                <div className="flex justify-center items-baseline my-2 text-deep-orange">
-                  <span className="">+ $25 per additional task</span>
-                </div>
-                {/* List  */}
-                <ul
-                  role="list"
-                  className="mb-8 space-y-2 text-left list-disc list-inside "
-                >
-                  <li className="items-center space-x-3 ">
-                    {/* TODO: add Icon?? */}
-                    <span>Troubleshooting Devices</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Cloud Storage</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Device Setups</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Malware Removal</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Computer Optimizations</span>
-                  </li>
-                </ul>
+            {/* Pricing Cards */}
+            <ServiceCard
+              scrollToForm={scrollToForm}
+              serviceTitle="Tech Bundle"
+              description="Have more than one device or issue that needs to be fixed? I'll take care of everything in one convenient appointment."
+              price="150"
+              listTitle="Covers up to 4 of you devices:"
+              className="border-deep-orange"
+            />
 
-                <button
-                  onClick={scrollToCalendly}
-                  className="inline-block mt-auto self-center rounded-md text-dark-blue text-xl p-4 transition duration-200 hover:ease-in bg-deep-orange hover:scale-110"
-                >
-                  Schedule an Appointment
-                </button>
-              </div>
+            <ServiceCard
+              scrollToForm={scrollToForm}
+              serviceTitle="One & Done"
+              description="If there&apos;s a single issue you need taken care of look no
+                further."
+              price="80"
+              listTitle="My solution to your specific problem:"
+            />
 
-              {/* Pricing Card - Other Services */}
-              <div className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border xl:p-8">
-                <h3 className="mb-4 text-2xl font-bold font-spartan">
-                  Other Services
-                </h3>
-                <p className="sm:text-lg mb-20">
-                  I offer other technical services that vary in price or depend
-                  on a budget. Get in contact with me and we can discuss the
-                  details.
-                </p>
-                <ul
-                  role="list"
-                  className="mb-8 space-y-2 text-left list-disc list-inside"
-                >
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>
-                      Web Development - Please visit{" "}
-                      <a
-                        href="https://astrolabstudio.com"
-                        target="_blank"
-                        className="underline"
-                      >
-                        Astrolab Studio
-                      </a>{" "}
-                      to find more information.
-                    </span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>Custom built PCs</span>
-                  </li>
-                  <li className="items-center space-x-3">
-                    {/* TODO: add Icon?? */}
-                    <span>
-                      Have something else in mind? Find my email below.
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </section>
 
         {/* Personal Guarantee */}
-        <section className="bg-dark-blue text-light-blue flex justify-center">
-          {/* w- h-52 mt-4 mx-auto mb-0 position relative */}
-          <div className="bg-deep-orange text-dark-blue rounded-md h-60 md:h-40 w-full max-w-screen-lg mx-10 my-10 relative flex justify-center items-center">
+        <section className="">
+          <div className="bg-deep-orange text-dark-blue h-60 md:h-40 w-full relative flex justify-center items-center drop-shadow-subtle">
             <div className="ribbon font-lato text-lg md:text-2xl">
               My Personal Guarantee
             </div>
@@ -290,32 +133,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
-          {/* Email Me */}
-          <div className="px-10 py-5 max-w-screen-lg xl:mx-auto font-lato text-lg md:text-xl">
-            <h3 className="text-4xl tracking-tight font-spartan font-extrabold text-dark-blue mb-3">
-              Have A Questions? Email Me
-            </h3>
-            <p className="mb-6">
-              Don&apos;t see what you&apos;re looking for? Or want to ask me
-              something specific? Reach out to me in an email
-            </p>
-            <div className="flex justify-center">
-              {/* */}
-              <a
-                href="mailto:leal.brendan@gmail.com"
-                className="rounded-md text-dark-blue text-xl p-4 max-w-sm text-center bg-deep-orange transition duration-200 hover:ease-in hover:scale-110"
-              >
-                Send Me an Email
-              </a>
-            </div>
-          </div>
-        </section>
 
-        <ContactForm />
+        <Testimonials />
+
+        <ContactForm ref={formRef} />
       </main>
-      <footer className="text-center bg-dark-blue text-light-blue font-lato text-sm">
-        <p>&copy; Brendan Leal 2023</p>
+      <footer className="text-center text-light-blue font-lato text-sm mb-2">
+        <p>&copy; Brendan Leal 2023 - {new Date().getFullYear()}</p>
       </footer>
     </>
   );

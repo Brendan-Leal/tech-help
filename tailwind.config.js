@@ -17,8 +17,11 @@ module.exports = {
         yellow: "#D9B70D",
         "light-blue": "#A3D0FC",
         "dark-blue": "#09182D",
-        "accent-blue": "#2D4B73",
+        "accent-blue": "#586f87",
       },
+      dropShadow: {
+        "subtle": "3px 3px 3px #27302E"
+      }
     },
   },
   plugins: [],
